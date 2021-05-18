@@ -535,7 +535,7 @@ module ActiveRecord
               name: row["conname"],
               validate: row["valid"]
             }
-            expression = row["constraintdef"][/CHECK \({2}(.+)\){2}/, 1]
+            expression = row["constraintdef"][/CHECK \({2}(.+)\){2}/m, 1]
 
             CheckConstraintDefinition.new(table_name, expression, options)
           end
